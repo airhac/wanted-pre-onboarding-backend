@@ -41,8 +41,10 @@ schema_view = get_schema_view(
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
     path('admin', admin.site.urls),
+    #swagger test
     path('api/', include(('sample_swagger.urls', 'api'))),
 
+    
 ]
 
 if settings.DEBUG:

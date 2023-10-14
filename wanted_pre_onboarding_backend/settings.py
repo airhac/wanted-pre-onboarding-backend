@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     #추가한 앱
+    'company',
     
     #drf
     'rest_framework',
@@ -96,10 +97,15 @@ WSGI_APPLICATION = 'wanted_pre_onboarding_backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql', # 사용할 데이터베이스 엔진
+        'NAME': 'wanted', # 데이터베이스 이름 
+        'USER': 'root', # 접속할 Database 계정 아이디 ex) root
+        'PASSWORD': 'root',  # 접속할 Database 계정 비밀번호 ex) 1234
+        'HOST': 'localhost',   # host는 로컬 환경에서 동작한다면 ex) localhost
+        'PORT': '3306', # 설치시 설정한 port 번호를 입력한다. ex) 3306
     }
 }
+
 
 
 # Password validation
