@@ -43,7 +43,8 @@ urlpatterns = [
     path('admin', admin.site.urls),
     #swagger test
     path('api/', include(('sample_swagger.urls', 'api'))),
-
+    #채용 관련 데이터 페이지
+    path('recruit/', include('recruit.urls'))
     
 ]
 
