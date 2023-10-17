@@ -12,7 +12,8 @@ class RecruitViewSet(viewsets.ModelViewSet):
     #drf의 filters기능을 통해 ?Search적용
     #get요청에서 search하면 해당 값이 포함한 field에서 해당되면 그 list를 반환 해줌
     filter_backends = [filters.SearchFilter]
-    search_fields = ['company_name', 'region', 'recruit_position', 'recruit_con', 'recruit_skills']
+    # 참조하는 값을 filter로 적용하고자하면 외래키_id__참조하는 필드 이름으로 지정해주면 됩니다.
+    search_fields = ['company_id__company_name', 'company_id__region', 'recruit_position', 'recruit_con', 'recruit_skills']
      
     def get_queryset(self):
         return Recruit.objects.all()
