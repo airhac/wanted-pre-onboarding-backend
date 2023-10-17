@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from rest_framework.decorators import action
-from rest_framework import viewsets
+from rest_framework import viewsets, filters
 from rest_framework.response import Response
 from .models import Recruit
 from company.models import Company
@@ -9,7 +9,11 @@ from .serializers import RecruitSerializer, RecruitDetailSerializer
 # Create your views here.
 class RecruitViewSet(viewsets.ModelViewSet):
     serializer_class = RecruitSerializer
-    
+    #drf의 filters기능을 통해 ?Search적용
+    #get요청에서 search하면 해당 값이 포함한 field에서 해당되면 그 list를 반환 해줌
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['company_name', 'region', 'recruit_position', 'recruit_con', 'recruit_skills']
+     
     def get_queryset(self):
         return Recruit.objects.all()
     
@@ -24,7 +28,7 @@ class RecruitViewSet(viewsets.ModelViewSet):
         return RecruitSerializer
     
     def list(self, request, *args, **kwargs):
-        queryset = self.get_queryset()
+        queryset = self.filter_queryset(self.get_queryset())
         serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
         

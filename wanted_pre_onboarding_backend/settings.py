@@ -40,7 +40,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': ['rest_framework.filters.SearchFilter'],
 
+}
 # Application definition
 
 INSTALLED_APPS = [
@@ -56,6 +59,8 @@ INSTALLED_APPS = [
     'recruit',
     #drf
     'rest_framework',
+    #django용 filter을 이용한 search
+    'django_filters',
     
     #swagger
     'drf_yasg',
