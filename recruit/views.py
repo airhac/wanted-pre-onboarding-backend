@@ -4,7 +4,7 @@ from rest_framework import viewsets
 from rest_framework.response import Response
 from .models import Recruit
 from company.models import Company
-from .serializers import RecruitSerializer
+from .serializers import RecruitSerializer, RecruitDetailSerializer
 
 # Create your views here.
 class RecruitViewSet(viewsets.ModelViewSet):
@@ -19,14 +19,24 @@ class RecruitViewSet(viewsets.ModelViewSet):
         if self.action == 'list':
             class ListRecruitSerializer(RecruitSerializer):
                 class Meta(RecruitSerializer.Meta):
-                    fields = [field for field in RecruitSerializer.Meta.fields if field != 'recruit_con']
+                    fields = [field for field in RecruitSerializer.Meta.fields if field not in ['recruit_con']]
             return ListRecruitSerializer
         return RecruitSerializer
     
     def list(self, request, *args, **kwargs):
         queryset = self.get_queryset()
-        
         serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
         
-        
+    def retrieve(self, request, *args, **kwargs):
+        instance = self.get_object()
+        serializer = RecruitDetailSerializer(instance)
+        return Response(serializer.data)
+    
+    def update(self, request, *args, **kwargs):
+        partial = kwargs.pop('partial', False)
+        instance = self.get_object()
+        serializer = RecruitDetailSerializer(instance, data=request.data, partial=partial)
+        serializer.is_valid(raise_exception=True)
+        self.perform_update(serializer)
+        return Response(serializer.data)
