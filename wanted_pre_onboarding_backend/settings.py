@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     #추가한 앱
     'company',
     'recruit',
+    'applyapp',
     #drf
     'rest_framework',
     #django용 filter을 이용한 search
