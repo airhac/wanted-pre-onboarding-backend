@@ -105,6 +105,7 @@ For building and running the application you need:
 '''
 - conda 환경 설정 후 requirements
 $ pip install -r requirements.txt
+
 '''
 
 ```
