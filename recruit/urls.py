@@ -6,5 +6,5 @@ router = DefaultRouter()
 router.register(r'recruitment', RecruitViewSet, basename='recruitment')
 
 urlpatterns = [
-    path('', include(router.urls)),
+    path('', include(router.urls), name='recruit'),
 ]
