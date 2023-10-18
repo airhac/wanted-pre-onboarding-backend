@@ -102,11 +102,10 @@ For building and running the application you need:
 - pytest-django 4.5.2
 - drf-yasg 1.17.7 (swagger 사용)
 
-'''
+```
 - conda 환경 설정 후 requirements
 $ pip install -r requirements.txt
-
-'''
+```
 
 ```
 - 데이터 베이스는 local mysql과 연결
