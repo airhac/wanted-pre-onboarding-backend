@@ -4,7 +4,7 @@
 
 ## 📔 Api 명세서
 
-![Alt text](image.png)
+![Alt text](media/image.png)
 
 -  서버를 실행한 후 'http://127.0.0.1:8000/swagger/' url로 접근 하면 해당 api들을 볼 수 있습니다.
 
@@ -12,19 +12,19 @@
 
 ### 1. 채용공고를 등록합니다.
   - 아래와 같이 http://127.0.0.1:8000/recruit/recruitment/ 경로로 post 요청을 하면 데이터가 db에 저장되고 두번째 이미지 처럼 리스트에 추가 됩니다.
-  ![Alt text](image-1.png)
-  ![Alt text](image-2.png)
+  ![Alt text](media/image-1.png)
+  ![Alt text](media/image-2.png)
 
 ### 2. 채용공고를 수정합니다.
   - 아래 이미지와 같이  http://127.0.0.1:8000/recruit/recruitment/{채용공고_id} 경로로 put, patch와 같은 요청을 보내면 두번째 이미지처럼 상세 내용이 수정 됩니다.
   
   [변경전]
 
-  ![Alt text](image-3.png)
+  ![Alt text](media/image-3.png)
 
   [변경후]
 
-  ![Alt text](image-4.png)
+  ![Alt text](media/image-4.png)
 
   ### 3. 채용공고를 삭제합니다.
 
@@ -32,17 +32,17 @@
 
   [변경전]
 
-  ![Alt text](image-5.png)
+  ![Alt text](media/image-5.png)
 
   [변경후]
-  ![Alt text](image-6.png)
+  ![Alt text](media/image-6.png)
 
-  ![Alt text](image-7.png)
+  ![Alt text](media/image-7.png)
 
   ### 4. 채용공고 목록을 가져옵니다
   #### 4-1. 사용자는 채용공고 목록을 아래와 같이 확인 할 수 있습니다.
 
-  ![Alt text](image-8.png)
+  ![Alt text](media/image-8.png)
     
   #### 4-2.채용공고 검색기능 구현
 
@@ -50,18 +50,18 @@
 
   [검색전]
 
-  ![Alt text](image-9.png)
+  ![Alt text](media/image-9.png)
 
   [검색후]
 
-  ![Alt text](image-10.png)
+  ![Alt text](media/image-10.png)
 
   ### 5. 채용 상세 페이지를 가져옵니다.
   -  http://127.0.0.1:8000/recruit/recruitment/{채용공고_id} 으로 새로고침하거나 get요청을하면 다음과 같이 볼수 있습니다.
 
   - 채용목록에는 없는 'recruit_con' 채용내용이 추가적으로 담겨 있으며 해당 회사가 올린 다른 채용공고_id가 'related_recruit_ids' 리스트에 포함되어 응답됩니다
 
-  ![Alt text](image-11.png)
+  ![Alt text](media/image-11.png)
 
   ### 6. 사용자는 채용공고에 지원합니다
   - 사용자가 POST '/apply/application/'를 통해
@@ -69,15 +69,15 @@
 
   [지원전]
 
-  ![Alt text](image-12.png)
+  ![Alt text](media/image-12.png)
   
   [지원후]
 
-  ![Alt text](image-13.png)
+  ![Alt text](media/image-13.png)
 
   [지원 불가]
 
-  ![Alt text](image-14.png)
+  ![Alt text](media/image-14.png)
 ## 📚 stacks
 
 <div> 
